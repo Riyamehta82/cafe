@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Takeaway | Hazelnut Haven</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+   
+    .card {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 16px;
+      background: #fffdf9;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    
+
+    label {
+      font-weight: 500;
+      margin-top: 15px;
+      color: #4e342e;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 5px;
+      border: 1px solid #d7ccc8;
+      border-radius: 8px;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #8d6e63;
+      box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2);
+    }
+
+    .btn {
+      background: #6d4c41;
+      color: #fff;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: #4e342e;
+    }
+
+    #otp-section,
+    #payment-section {
+      display: none;
+    }
+
+    #otp-demo {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #8d6e63;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <section class="a">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="img/logo.png" width="70%" height="150px">
+          </div>
+          <div class="col-md-9">
+            <h1>Hazelnut Haven</h1>
+            <h6>Taste Haven , Feel Home,</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+ <div class="card">
+    <div id="form-wrap">
+      <label>Name</label><input id="name" placeholder="Full name">
+      <div class="row">
+        <div class="col-md-6">
+          <label>Phone</label><input id="phone" placeholder="10 digit mobile">
+        </div>
+        <div class="col-md-6">
+          <label>Email</label><input id="email" placeholder="email@example.com">
+        </div>
+      </div>
+      <label>Address</label><textarea id="address" rows="3" placeholder="Pickup/Delivery address"></textarea>
+
+      <button class="btn" onclick="sendOtp()">Send OTP</button>
+      <div class="muted">( OTP will be shown on screen)</div>
+    </div>
+
+    <div id="otp-section">
+      <label>Enter OTP</label>
+      <input id="otp-input" placeholder="Enter the OTP you received">
+      <button class="btn" onclick="verifyOtp()">Verify OTP</button>
+      <div class="muted" id="otp-demo"></div>
+    </div>
+
+    <div id="payment-section">
+      <h3>Payment</h3>
+      <div>
+        <button class="btn" onclick="choosePay('cash')">Cash on Pickup</button>
+        <button class="btn" onclick="choosePay('online')">Pay Online (UPI QR)</button>
+      </div>
+
+      <div id="qr-wrap" style="display:none;margin-top:12px;text-align:center">
+        <div id="qrcode"></div>
+        <div class="muted">Scan to pay the amount ₹<span id="pay-amount"></span></div>
+        <div style="margin-top:10px"><button class="btn" onclick="placeOrder()">Place Order</button></div>
+      </div>
+
+      <div id="cash-wrap" style="display:none;margin-top:10px">
+        <div class="muted">You chose cash on pickup.</div>
+        <div style="margin-top:10px"><button class="btn" onclick="placeOrder()">Place Order</button></div>
+      </div>
+    </div>
+  </div>
+
+ <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Hazelnut Haven</h2>
+          <p>Hazelnut Haven is a cozy cafeteria serving hazelnut coffees, tasty snacks, and refreshing beverages in a
+            warm, welcoming atmosphere.</p>
+        </div>
+        <div class="col-md-3">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="front.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="places.html">Services</a></li>
+            <li><a href="gallery.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2>Address</h2>
+          <a href="https://maps.app.goo.gl/ccHuyns94rs3rLm98">
+            <p><i class="fa-solid fa-map"></i> : Near woodland, opposite Hariom Tower, Lalpur, Ranchi, Jharkhand.</p>
+          </a>
+          <a href="tel:09123456780">
+            <p><i class="fa-solid fa-phone"></i> : +91-9123456780</p>
+          </a>
+          <a href="mailto:hazelnut@info.com">
+            <p><i class="fa-solid fa-envelopes-bulk"></i> : Hazelnut@info.com</p>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <h2>Social Media</h2>
+          <p>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <section class="y">
+    <div class="container">
+      <p>&copy; 2025 Hazelnut Haven Cafeteria | All Rights Reserved</p>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const stored = JSON.parse(localStorage.getItem('cart_total') || 'null');
+    if (!stored) { alert('Cart empty'); location.href = 'cart.html'; }
+
+    let demoOtp = null;
+    function sendOtp() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      if (!name || !phone || !email || !address) {
+        alert('Please fill all fields.');
+        return;
+      }
+      if (!/^\d{10}$/.test(phone)) { alert('Enter valid 10-digit phone'); return; }
+      if (!/.+@.+\..+/.test(email)) { alert('Enter a valid email'); return; }
+
+      demoOtp = Math.floor(100000 + Math.random() * 900000).toString();
+      // ✅ Corrected ID
+      document.getElementById('otp-demo').innerText = ' OTP: ' + demoOtp;
+
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('otp-section').style.display = 'block';
+
+      localStorage.setItem('takeaway_user', JSON.stringify({ name, phone, email, address }));
+    }
+
+    function verifyOtp() {
+      const entered = document.getElementById('otp-input').value.trim();
+      if (entered === demoOtp) {
+        alert('✅ OTP verified.');
+        document.getElementById('otp-section').style.display = 'none';
+        document.getElementById('payment-section').style.display = 'block';
+      } else {
+        alert('Incorrect OTP. Try again.');
+      }
+    }
+
+    function choosePay(mode) {
+      document.getElementById('qr-wrap').style.display = 'none';
+      document.getElementById('cash-wrap').style.display = 'none';
+      if (mode === 'online') {
+        const upiId = '6204841592@ybl';
+        const amount = stored.total.toFixed(2);
+        document.getElementById('pay-amount').innerText = amount;
+        const name = encodeURIComponent('Hazelnut Haven');
+        const pa = encodeURIComponent(upiId);
+        const upiUri = `upi://pay?pa=${pa}&pn=${name}&am=${amount}&cu=INR`;
+        document.getElementById('qr-wrap').style.display = 'block';
+        document.getElementById('qrcode').innerHTML = '';
+        new QRCode(document.getElementById('qrcode'), { text: upiUri, width: 220, height: 220, correctLevel: QRCode.CorrectLevel.H });
+      } else {
+        document.getElementById('cash-wrap').style.display = 'block';
+      }
+    }
+
+    function placeOrder() {
+      const user = JSON.parse(localStorage.getItem('takeaway_user') || '{}');
+      const msg = `Order placed (demo).\nName: ${user.name || 'N/A'}\nTotal: ₹${stored.total}\nWe will contact: ${user.phone || 'N/A'}`;
+      alert(msg);
+      localStorage.removeItem('cart');
+      localStorage.removeItem('cart_total');
+      localStorage.removeItem('takeaway_user');
+      location.href = 'cart.html';
+    }
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>

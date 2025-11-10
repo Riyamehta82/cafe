@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dine-In | Hazelnut Haven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Poppins, Arial;
+      background: #faf6f2;
+      color: #222;
+      text-align: center;
+    }
+
+    .card {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .06)
+    }
+
+    .n {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .m {
+      flex: 1;
+      min-width: 200px
+    }
+
+    .l {
+      display: inline-block;
+      margin-right: 100px;
+      margin-top: 50px;
+      padding: 12px 12px;
+      border-radius: 8px;
+      border: 0;
+      background: #5c3d2e;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .btn {
+      display: inline-block;
+      margin-right: 0px;
+      border-radius: 8px;
+      border: 0;
+      background: #5c3d2e;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+
+    .muted {
+      color: #666
+    }
+
+    #qr-wrap {
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fafafa;
+      text-align: center
+    }
+
+    #qrcode {
+      display: inline-block
+    }
+
+    .place {
+      margin-top: 12px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <section class="a">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="img/logo.png" width="70%" height="150px">
+          </div>
+          <div class="col-md-9">
+            <h1>Hazelnut Haven</h1>
+            <h6>Taste Haven , Feel Home,</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+
+<div class="card">
+<section>
+  <div style="margin-top:14px">
+    <label style="display:block; margin-bottom:6px; margin-top: 20px; font-weight:600; font-size: 30px;">Payment Method</label>
+    <div class="row" class="n">
+      <div class="m"><button class="l" onclick="pay('cash')">Cash </button></div>
+      <div class=m"><button class="l" onclick="pay('online')">Online Payment (UPI QR)</button></div>
+    </div>
+  </div>
+
+  <div id="qr-wrap" style="display:none">
+    <div id="qrcode"></div>
+    <div style="margin-top:8px" class="muted">Scan to pay the exact amount</div>
+    <div class="place"><button class="btn" onclick="placeOrder()">Place Order</button></div>
+  </div>
+
+  <div id="cash-wrap" style="display:none;margin-top:12px">
+    <div class="muted">You chose cash. Click below to confirm.</div>
+    <div class="place"><button class="btn" onclick="placeOrder('cash')">Place Order</button></div>
+  </div>
+  </section>
+</div>
+
+
+
+  <footer style="color: black; margin-top: 300px;"">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Hazelnut Haven</h2>
+          <p>Hazelnut Haven is a cozy cafeteria serving hazelnut coffees, tasty snacks, and refreshing beverages in a
+            warm, welcoming atmosphere..</p>
+        </div>
+        <div class="col-md-3">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="front.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="places.html">Services</a></li>
+            <li><a href="gallery.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2>Address</h2>
+          <a href="https://maps.app.goo.gl/ccHuyns94rs3rLm98">
+            <p><i class="fa-solid fa-map"></i> : Near woodland,opposite hariom tower,lalpur,Ranchi, Jharkhand.</p>
+          </a>
+          <a href="tel:09123456780">
+            <p><i class="fa-solid fa-phone"></i> : +91-9123456780</p>
+          </a>
+          <a href="mailto:hazelnut@info.com">
+            <p><i class="fa-solid fa-envelopes-bulk"></i> : Hazelnut@info.com</p>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <h2>Social Media</h2>
+          <p>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <section class="y">
+    <div class="container">
+      <p>&copy; 2025 Hazelnut Haven Cafeteria | All Rights Reserved</p>
+    </div>
+  </section>
+
+
+
+
+  <!-- qrcode lib -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    const stored = JSON.parse(localStorage.getItem('cart_total') || 'null');
+    if (!stored) { alert('Cart empty'); location.href = 'cart.html'; }
+    document.getElementById('summary').innerHTML = `Total Items: <strong>${stored.items.reduce((s, i) => s + (i.qty || 1), 0)}</strong> • Total: <strong>₹${stored.total}</strong>`;
+
+    function pay(mode) {
+      document.getElementById('qr-wrap').style.display = 'none';
+      document.getElementById('cash-wrap').style.display = 'none';
+      if (mode === 'online') {
+        // Build UPI URI - change pa= to your UPI ID
+        const upiId = '6204841592@ybl';
+        const amount = stored.total.toFixed(2);
+        const name = encodeURIComponent('Hazelnut Haven');
+        const pa = encodeURIComponent(upiId);
+        // UPI URI
+        const upiUri = `upi://pay?pa=${pa}&pn=${name}&am=${amount}&cu=INR`;
+        // generate QR
+        document.getElementById('qr-wrap').style.display = 'block';
+        // clear old
+        document.getElementById('qrcode').innerHTML = '';
+        new QRCode(document.getElementById('qrcode'), {
+          text: upiUri,
+          width: 220,
+          height: 220,
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      } else {
+        document.getElementById('cash-wrap').style.display = 'block';
+      }
+    }
+
+    function placeOrder(mode) {
+      // In real app you'd send order to backend
+      alert('✅ Order placed! (Demo)\nType: ' + (mode || 'Online') + '\nTotal: ₹' + stored.total);
+      localStorage.removeItem('cart');
+      localStorage.removeItem('cart_total');
+      location.href = 'cart.html';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
